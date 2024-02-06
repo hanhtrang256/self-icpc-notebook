@@ -37,3 +37,17 @@ struct Matrix {
 		return res;
 	}
 };
+
+int getFib(long long n) {
+	Matrix v(1, 2);
+	v.d[0][0] = 0; v.d[0][1] = 1;
+	Matrix a(2, 2);
+	a.d[0][0] = 0;
+	a.d[0][1] = 1;
+	a.d[1][0] = 1;
+	a.d[1][1] = 1;
+
+	v = v * (a ^ n);
+	return v.d[0][0];
+}
+
