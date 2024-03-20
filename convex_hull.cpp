@@ -60,10 +60,10 @@ return dot(query, hull[it - v.begin()]);
 /** type 2 **/
 struct CHT {
     struct Line {
-        int slope, yIntersect;
+        int slope, yIntersect; // a, b
         Line(int _slope = 0, int _yIntersect = 0) { slope = _slope; yIntersect = _yIntersect; }
         long long val(int x) { return 1LL * slope * x + yIntersect; }
-        int intersect(Line other) {
+        int intersect(Line other) { // (b2 - b1) / (a1 - a2) = x_intersect
             return (other.yIntersect - yIntersect + slope - other.slope - 1) / (slope - other.slope);
         }
     };
